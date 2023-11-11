@@ -39,21 +39,7 @@ class KalmanFilter
      * @param[in] pos The position of the lane. (x coordinate)
      * @return void
      */
-    void update(PREC avg_slope, PREC avg_intercept, PREC pos)
-    {
-        // kalman gain
-        static const auto measurement_matrix_t = measurement_matrix_.t();
-        kalman_gain_ = covariance_matrix_ * measurement_matrix_t * (measurement_matrix_ * covariance_matrix_ * measurement_matrix_t + measurement_noise_matrix_).inv();
-
-        if (pos <= 0 || pos >= 640)
-        {
-            cv::Mat measurement = (cv::Mat_<double>(2, 1) << avg_slope, avg_intercept);
-            state_matrix_ += kalman_gain_ * (measurement - measurement_matrix_ * state_matrix_);
-        }
-
-        // Update covariance
-        covariance_matrix_ -= kalman_gain_ * measurement_matrix_ * covariance_matrix_;
-    }
+    void update(PREC avg_slope, PREC avg_intercept, PREC pos);
 
     /**
      * @details Get the state matrix. \n

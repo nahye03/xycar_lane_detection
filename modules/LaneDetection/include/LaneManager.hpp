@@ -13,7 +13,7 @@
 #include "ImageProcessor.hpp"
 #include "LaneDetector.hpp"
 #include "PIDController.hpp"
-#include "XycarController.hpp"
+// #include "XycarController.hpp"
 
 namespace XyCar
 {
@@ -25,13 +25,13 @@ public:
     void run();
 
 private:
-    ros::NodeHandle node_handler_;
-    ros::Subscriber subscriber_;
+    // ros::NodeHandle node_handler_;
+    // ros::Subscriber subscriber_;
 
     ImageProcessor image_processor_;
     LaneDetector detector_;
     PIDController pid_controller_;
-    XycarController xycar_controller;
+    // XycarController xycar_controller;
 
     // std::queue <cv::Mat> current_images_;
     cv::Mat image_;

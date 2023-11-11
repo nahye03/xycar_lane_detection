@@ -2,7 +2,7 @@
 // Created by nahye on 23. 11. 7.
 //
 
-#include "LaneDetection/LaneDetector.hpp"
+#include "LaneDetector.hpp"
 
 namespace XyCar
 {
